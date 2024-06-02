@@ -1,6 +1,6 @@
 const express = require("express");
 const Mood = require("../models/moodModel");
-const router = express.router();
+const router = express.Router();
 
 router.post("/", async (req, res) => {
     const { mood } = req.body;
