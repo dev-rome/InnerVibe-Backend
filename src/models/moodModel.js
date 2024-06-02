@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
-const moodSchema = new mongoose.Schema({
-    mood: { type: String, required: true },
+const entrySchema = new mongoose.Schema({
+    entry: { type: String, required: true },
     timestamp: { type: Date, default: Date.now },
+    title: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Mood", moodSchema);
+module.exports = mongoose.model("Entry", entrySchema);

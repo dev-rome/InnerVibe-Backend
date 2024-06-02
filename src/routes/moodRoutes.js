@@ -1,16 +1,16 @@
 const express = require("express");
-const Mood = require("../models/moodModel");
+const Mood = require("../models/entryModel");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-    const { mood } = req.body;
+    const { entry, title } = req.body;
 
     try {
-        const newMood = new Mood({ mood });
-        await newMood.save();
+        const newEntry = new Mood({ entry, title });
+        await newEntry.save();
         res.status(201).json({ message: "Mood recorded successfully" });
     } catch (err) {
-        res.status(500).json({ err: "Failed to record mood" });
+        res.status(500).json({ err: "Failed to record entry" });
     }
 });
 
