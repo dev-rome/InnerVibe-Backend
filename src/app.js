@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const moodRoutes = require("./routes/moodRoutes");
+require('dotenv').config();
 
 const app = express();
 
