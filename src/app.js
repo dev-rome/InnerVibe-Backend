@@ -2,7 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const moodRoutes = require("./routes/moodRoutes");
+const entryRoutes = require("./routes/entryRoutes");
+const authRoutes = require("./routes/authRoutes");
 require('dotenv').config();
 
 const app = express();
@@ -21,6 +22,7 @@ mongoose.connect(dbURI, {
     console.error("Failed to connect to MongoDB:", err);
 });
 
-app.use("/api/mood", moodRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/entry", entryRoutes);
 
 module.exports = app;
