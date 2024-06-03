@@ -3,6 +3,7 @@ const Entry = require("../models/entryModel");
 const authMiddleware = require("../middleware/authMiddleware");
 const router = express.Router();
 
+// get all entries
 router.get("/", authMiddleware, async (req, res) => {
     try {
         const userEntries = await Entry.find({ user: req.user.id });
@@ -12,6 +13,7 @@ router.get("/", authMiddleware, async (req, res) => {
     }
 });
 
+// record a new entry
 router.post("/", authMiddleware, async (req, res) => {
     const { entry, title } = req.body;
 

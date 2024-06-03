@@ -7,7 +7,6 @@ const User = require("../models/userModel");
 const { findOne } = require("../models/entryModel");
 
 // register a new user
-
 router.post("./register",
     [
         check("name", "Name is required").not().isEmpty(),
@@ -55,6 +54,7 @@ router.post("./register",
     }
 );
 
+// login a user
 router.post("/login",
     [
         check("email", "Please include a valid email").isEmail(),
