@@ -7,7 +7,7 @@ const User = require("../models/userModel");
 const { findOne } = require("../models/entryModel");
 
 // register a new user
-router.post("./register",
+router.post("/signup",
     [
         check("name", "Name is required").not().isEmpty(),
         check("email", "Please include a valid email").isEmail(),
